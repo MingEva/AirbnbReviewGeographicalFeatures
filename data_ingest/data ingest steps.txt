@@ -1,0 +1,26 @@
+# The Data Ingest (download data and upload to HDFS) steps has been shown in Readme.md
+
+### Download Data
+
+1. Download San Francisco Airbnb Review & Pricing Data: 
+    1. Go to [http://insideairbnb.com/get-the-data/](http://insideairbnb.com/get-the-data/)
+    2. Find “San Francisco, California, United States”
+    3. Download the first file in the list, “[listings.csv.gz](http://data.insideairbnb.com/united-states/ca/san-francisco/2021-12-04/data/listings.csv.gz)”, and unzip the file locally to get listings.csv
+2. Download police_short.csv  (the first 6000 rows)
+    1. go to [https://data.sfgov.org/Public-Safety/Police-Department-Incident-Reports-Historical-2003/tmnf-yvry](https://data.sfgov.org/Public-Safety/Police-Department-Incident-Reports-Historical-2003/tmnf-yvry)
+    2. download and rename as police_short.csv
+3. Download business.csv
+    1. Go to [https://data.sfgov.org/Economy-and-Community/Registered-Business-Locations-San-Francisco/g8m3-pdis](https://data.sfgov.org/Economy-and-Community/Registered-Business-Locations-San-Francisco/g8m3-pdis)
+    2. click “export”, click “csv”
+    3. rename the file to business.csv
+    
+
+### Upload Data
+
+- Please change it according to your home directory:
+- scp /Users/guozhitong/Downloads/listings.csv zg978@peel.hpc.nyu.edu:/home/zg978/
+- scp /Users/guozhitong/Downloads/business.csv zg978@peel.hpc.nyu.edu:/home/zg978/
+- scp /Users/guozhitong/Downloads/police_short.csv zg978@peel.hpc.nyu.edu:/home/zg978/
+- hdfs dfs -put police_short.csv team3
+- hdfs dfs -put business.csv team3
+- hdfs dfs -put listings.csv team3
